@@ -231,5 +231,210 @@ footer p {
     .deals-grid,
     .category-grid {
         grid-template-columns: 1fr;
+ 
+    
+    /* Promo Banner - Urgency & Social Proof */
+.promo-banner {
+    background: linear-gradient(90deg, #ff6b6b 0%, #ff8e53 100%);
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+    font-weight: 500;
+    animation: slideDown 0.5s ease;
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.fire-icon, .users-icon {
+    font-size: 1.2rem;
+}
+
+.timer {
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.3rem 0.8rem;
+    border-radius: 5px;
+    margin-left: 0.5rem;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
     }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Email Signup Section */
+.email-signup {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 3rem 0;
+    color: white;
+}
+
+.signup-box {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.signup-box h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.signup-form {
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.email-input {
+    flex: 1;
+    min-width: 250px;
+    padding: 1rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+}
+
+.signup-btn {
+    padding: 1rem 2rem;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.signup-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.trust-text {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-top: 1rem;
+}
+
+/* Customer Reviews */
+.reviews {
+    padding: 4rem 0;
+    background: #f9f9f9;
+}
+
+.reviews h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: #333;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.review-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+}
+
+.stars {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #FFD700;
+}
+
+.review-card p {
+    margin: 1rem 0;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+.reviewer {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: bold;
+}
+
+.trust-badges {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.trust-badges span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Floating Sticky CTA Button */
+.floating-cta {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    animation: bounce 2s infinite;
+}
+
+.floating-btn {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(255, 107, 107, 0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.floating-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(255, 107, 107, 0.6);
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
 }
