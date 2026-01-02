@@ -438,3 +438,352 @@ footer p {
     }
 }
 }
+
+
+/* ========== STUNNING VISUAL ENHANCEMENTS ========== */
+
+/* Smooth Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Enhanced Body with Subtle Pattern */
+body {
+    background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+    background-attachment: fixed;
+}
+
+/* Beautiful Header Enhancement */
+header {
+    background: linear-gradient(135deg, #FF69B4 0%, #FFB6C1 50%, #FF69B4 100%);
+    box-shadow: 0 4px 20px rgba(255, 105, 180, 0.3);
+    backdrop-filter: blur(10px);
+    animation: shimmer 3s infinite linear;
+    background-size: 200% 100%;
+}
+
+/* Logo Animation */
+header .logo h1 {
+    animation: float 3s ease-in-out infinite;
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+header .logo h1:hover {
+    transform: scale(1.1) rotate(-2deg);
+    text-shadow: 4px 4px 15px rgba(255, 255, 255, 0.8);
+}
+
+/* Hero Section Enhancement */
+.hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: float 6s ease-in-out infinite;
+}
+
+.hero h2 {
+    text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1.2s ease-out;
+}
+
+/* CTA Button Stunning Effect */
+.cta-button, .klarna-btn, .signup-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button::before, .klarna-btn::before, .signup-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.cta-button:hover::before, .klarna-btn:hover::before, .signup-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.cta-button:hover, .klarna-btn:hover, .signup-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Deal Cards Stunning Enhancement */
+.deal-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: fadeInUp 0.8s ease-out;
+    animation-fill-mode: both;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.deal-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.7s;
+}
+
+.deal-card:hover::before {
+    left: 100%;
+}
+
+.deal-card:nth-child(1) { animation-delay: 0.1s; }
+.deal-card:nth-child(2) { animation-delay: 0.2s; }
+.deal-card:nth-child(3) { animation-delay: 0.3s; }
+.deal-card:nth-child(4) { animation-delay: 0.4s; }
+
+.deal-card:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 15px 40px rgba(255, 105, 180, 0.3);
+}
+
+.deal-card img {
+    transition: transform 0.5s ease;
+}
+
+.deal-card:hover img {
+    transform: scale(1.1) rotate(2deg);
+}
+
+/* Price Animation */
+.price {
+    background: linear-gradient(135deg, #FF69B4, #FFB6C1, #FF1493);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+/* Promo Banner Enhancement */
+.promo-banner {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 50%, #ffd93d 100%);
+    box-shadow: 0 8px 30px rgba(255, 107, 107, 0.4);
+    position: relative;
+    overflow: hidden;
+    animation: pulse 3s infinite;
+}
+
+.promo-banner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    animation: shimmer 4s infinite;
+}
+
+.fire-icon {
+    animation: pulse 1s infinite;
+    filter: drop-shadow(0 0 10px rgba(255, 165, 0, 0.8));
+}
+
+/* Email Signup Box Enhancement */
+.signup-box {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 1s ease-out;
+}
+
+.signup-box::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #FFB6C1, #667eea, #764ba2, #FFB6C1);
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(20px);
+    animation: shimmer 8s linear infinite;
+}
+
+/* Review Cards Enhancement */
+.review-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    transition: all 0.4s ease;
+    animation: fadeInUp 0.8s ease-out;
+    animation-fill-mode: both;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.review-card:nth-child(1) { animation-delay: 0.2s; }
+.review-card:nth-child(2) { animation-delay: 0.4s; }
+.review-card:nth-child(3) { animation-delay: 0.6s; }
+
+.review-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+    background: linear-gradient(135deg, #ffffff 0%, #fff5f8 100%);
+}
+
+.stars {
+    animation: pulse 2s infinite;
+    filter: drop-shadow(0 2px 5px rgba(255, 215, 0, 0.5));
+}
+
+/* Floating CTA Button Enhancement */
+.floating-cta {
+    animation: float 3s ease-in-out infinite;
+}
+
+.floating-btn {
+    background: linear-gradient(135deg, #FF69B4 0%, #FF1493 100%);
+    box-shadow: 0 5px 30px rgba(255, 105, 180, 0.5);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.floating-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.5s, height 0.5s;
+}
+
+.floating-btn:hover::before {
+    width: 400px;
+    height: 400px;
+}
+
+.floating-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 50px rgba(255, 105, 180, 0.7);
+}
+
+/* Category Cards Enhancement */
+.category-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s;
+}
+
+.category-card:hover::before {
+    left: 100%;
+}
+
+.category-card:hover {
+    transform: translateY(-10px) rotate(2deg) scale(1.05);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(135deg, #FF69B4 0%, #FFB6C1 100%);
+}
+
+/* Trust Badges Enhancement */
+.trust-badges span {
+    transition: all 0.3s ease;
+    animation: fadeInUp 1s ease-out;
+}
+
+.trust-badges span:hover {
+    transform: scale(1.15);
+    filter: drop-shadow(0 5px 15px rgba(102, 126, 234, 0.5));
+}
+
+/* Glowing Effect for Inputs */
+.email-input:focus {
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
+    border-color: #667eea;
+    transform: scale(1.02);
+}
+
+/* Footer Enhancement */
+footer {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Scroll Animation */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Add entrance animations to sections */
+section {
+    animation: fadeInUp 1s ease-out;
+}
