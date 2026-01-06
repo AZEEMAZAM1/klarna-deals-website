@@ -926,3 +926,292 @@ header .logo {
         font-size: 16px !important;
     }
 }
+
+
+/* === ENHANCED PROFESSIONAL IMPROVEMENTS === */
+
+/* Smooth gradient animation for hero */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hero {
+    background: linear-gradient(-45deg, #FFB6C1, #87CEEB, #98FB98, #DDA0DD);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+/* Enhanced card hover effects with shadow */
+.deal-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.deal-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Professional button animations */
+.klarna-btn, .cta-button, .signup-btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.klarna-btn::before, .cta-button::before, .signup-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+    z-index: -1;
+}
+
+.klarna-btn:hover::before, .cta-button:hover::before, .signup-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Loading skeleton for better UX */
+@keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+}
+
+.skeleton {
+    animation: shimmer 2s infinite;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 1000px 100%;
+}
+
+/* Enhanced countdown timer */
+.timer {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    letter-spacing: 2px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+/* Professional tooltip */
+[data-tooltip] {
+    position: relative;
+    cursor: help;
+}
+
+[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 12px;
+    background: #333;
+    color: white;
+    font-size: 14px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    z-index: 1000;
+}
+
+[data-tooltip]:hover::after {
+    opacity: 1;
+}
+
+/* Enhanced review cards with tilt effect */
+.review-card {
+    transition: transform 0.3s ease;
+}
+
+.review-card:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) scale(1.05);
+}
+
+/* Professional badge animation */
+.trust-badges span {
+    animation: float 3s ease-in-out infinite;
+}
+
+.trust-badges span:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.trust-badges span:nth-child(3) {
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Enhanced category cards with gradient borders */
+.category-card {
+    position: relative;
+    background: white;
+}
+
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #FFB6C1, #87CEEB, #98FB98, #DDA0DD);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.category-card:hover::before {
+    opacity: 1;
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Enhanced focus states for accessibility */
+*:focus {
+    outline: 3px solid #FFB6C1;
+    outline-offset: 2px;
+}
+
+/* Professional loading spinner */
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #FFB6C1;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Enhanced email input focus */
+.email-input:focus {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(255, 182, 193, 0.3);
+}
+
+/* Professional notification badge */
+.notification-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #ff4444;
+    color: white;
+    border-radius: 50%;
+    padding: 4px 8px;
+    font-size: 12px;
+    font-weight: bold;
+    animation: bounceIn 0.6s;
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Enhanced promo banner with moving gradient */
+.promo-banner {
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #ff6b6b);
+    background-size: 200% 200%;
+    animation: gradientMove 3s ease infinite;
+}
+
+@keyframes gradientMove {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Professional parallax effect hint */
+.parallax-hint {
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+/* Enhanced deal card image overlay */
+.deal-card img {
+    transition: transform 0.4s ease;
+}
+
+.deal-card:hover img {
+    transform: scale(1.1) rotate(2deg);
+}
+
+/* Professional price highlight */
+.price {
+    position: relative;
+    display: inline-block;
+}
+
+.price::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 182, 193, 0.3);
+    z-index: -1;
+    transition: height 0.3s;
+}
+
+.deal-card:hover .price::after {
+    height: 100%;
+}
+
+/* Success message animation */
+.success-message {
+    animation: slideInFromBottom 0.5s ease-out;
+}
+
+@keyframes slideInFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Professional dark mode support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1a1a1a;
+        color: #e0e0e0;
+    }
+    
+    .deal-card, .review-card, .category-card {
+        background: #2a2a2a;
+        box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* === END OF ENHANCEMENTS === */
