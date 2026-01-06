@@ -19,6 +19,7 @@
                     <li><a href="#deals">Deals</a></li>
                     <li><a href="#categories">Categories</a></li>
                     <li><a href="#about">About</a></li>
+                                        <li><a href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
                 </ul>
             </nav>
         </div>
@@ -69,6 +70,7 @@
                     <h3>Wireless Headphones</h3>
                     <p class="price">£89.99</p>
                     <p class="installment">or 4 payments of £22.50</p>
+                                        <button class="add-to-cart-btn" onclick="addToCart('Wireless Headphones', 89.99, 'https://via.placeholder.com/300x200/FFB6C1/FFFFFF?text=Electronics')">Add to Cart</button>
                     <button class="klarna-btn">Pay with Klarna</button>
                 </div>
                 <div class="deal-card">
@@ -156,5 +158,43 @@
     </footer>
 
     <script src="script.js"></script>
+        <script>
+        // Cart Management
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const cartCountElements = document.querySelectorAll('#cart-count');
+            cartCountElements.forEach(el => el.textContent = totalItems);
+        }
+        
+        function addToCart(productName, price, image, description = '') {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Check if item already exists
+            const existingItemIndex = cart.findIndex(item => item.name === productName);
+            
+            if (existingItemIndex > -1) {
+                cart[existingItemIndex].quantity++;
+            } else {
+                cart.push({
+                    name: productName,
+                    price: price,
+                    image: image || 'https://via.placeholder.com/100',
+                    description: description,
+                    quantity: 1
+                });
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            alert(`${productName} added to cart!`);
+        }
+        
+        // Update cart count on page load
+        updateCartCount();
+        
+        // Make addToCart function available globally
+        window.addToCart = addToCart;
+    </script>
 </body>
 </html>
