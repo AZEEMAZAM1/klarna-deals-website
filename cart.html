@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Klarna Deals</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .cart-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #ffb3c7;
+        }
+        
+        .cart-items {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        
+        .item-details {
+            display: flex;
+            gap: 20px;
+            flex: 1;
+        }
+        
+        .item-image {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .item-info h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        
+        .item-info p {
+            margin: 5px 0;
+            color: #666;
+        }
+        
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ffb3c7;
+            background: white;
+            color: #ff385c;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+        
+        .quantity-btn:hover {
+            background: #ff385c;
+            color: white;
+        }
+        
+        .quantity {
+            font-weight: bold;
+            min-width: 30px;
+            text-align: center;
+        }
+        
+        .item-price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff385c;
+            min-width: 100px;
+            text-align: right;
+        }
+        
+        .remove-btn {
+            background: none;
+            border: none;
+            color: #ff385c;
+            cursor: pointer;
+            font-size: 20px;
+            padding: 5px 10px;
+            transition: color 0.3s;
+        }
+        
+        .remove-btn:hover {
+            color: #d63447;
+        }
+        
+        .cart-summary {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            color: #666;
+        }
+        
+        .summary-total {
+            border-top: 2px solid #ffb3c7;
+            margin-top: 15px;
+            padding-top: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .klarna-payment {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f8f8;
+            border-radius: 8px;
+        }
+        
+        .klarna-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .klarna-logo img {
+            height: 30px;
+        }
+        
+        .payment-options {
+            display: grid;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .payment-option {
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .payment-option:hover,
+        .payment-option.active {
+            border-color: #ff385c;
+            background: #fff5f7;
+        }
+        
+        .payment-option h4 {
+            margin: 0 0 5px 0;
+            color: #333;
+        }
+        
+        .payment-option p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .checkout-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #ff385c 0%, #ff6b6b 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s;
+            margin-top: 20px;
+        }
+        
+        .checkout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 56, 92, 0.3);
+        }
+        
+        .empty-cart {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        .empty-cart h2 {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .continue-shopping {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #ff385c;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .continue-shopping:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <h1>🛍️ Klarna Deals</h1>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="#deals">Deals</a>
+                <a href="cart.html" class="active">Cart (<span id="cart-count">0</span>)</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="cart-container">
+        <div class="cart-header">
+            <h1>Shopping Cart</h1>
+            <button onclick="clearCart()" style="padding: 10px 20px; background: #ff385c; color: white; border: none; border-radius: 5px; cursor: pointer;">Clear Cart</button>
+        </div>
+
+        <div id="cart-content">
+            <!-- Cart items will be dynamically loaded here -->
+        </div>
+    </div>
+
+    <script>
+        // Cart functionality
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        function loadCart() {
+            const cartContent = document.getElementById('cart-content');
+            const cartCount = document.getElementById('cart-count');
+            
+            if (cart.length === 0) {
+                cartContent.innerHTML = `
+                    <div class="empty-cart">
+                        <h2>Your cart is empty</h2>
+                        <p>Add some amazing deals to get started!</p>
+                        <a href="index.html" class="continue-shopping">Continue Shopping</a>
+                    </div>
+                `;
+                cartCount.textContent = '0';
+                return;
+            }
+            
+            cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+            
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const shipping = subtotal > 50 ? 0 : 5.99;
+            const total = subtotal + shipping;
+            
+            cartContent.innerHTML = `
+                <div class="cart-items">
+                    ${cart.map((item, index) => `
+                        <div class="cart-item">
+                            <div class="item-details">
+                                <img src="${item.image}" alt="${item.name}" class="item-image" onerror="this.src='https://via.placeholder.com/100'">
+                                <div class="item-info">
+                                    <h3>${item.name}</h3>
+                                    <p>${item.description || 'Premium quality product'}</p>
+                                </div>
+                            </div>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="updateQuantity(${index}, -1)">-</button>
+                                <span class="quantity">${item.quantity}</span>
+                                <button class="quantity-btn" onclick="updateQuantity(${index}, 1)">+</button>
+                            </div>
+                            <div class="item-price">£${(item.price * item.quantity).toFixed(2)}</div>
+                            <button class="remove-btn" onclick="removeItem(${index})">×</button>
+                        </div>
+                    `).join('')}
+                </div>
+                
+                <div class="cart-summary">
+                    <h2>Order Summary</h2>
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span>£${subtotal.toFixed(2)}</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping:</span>
+                        <span>${shipping === 0 ? 'FREE' : '£' + shipping.toFixed(2)}</span>
+                    </div>
+                    <div class="summary-row summary-total">
+                        <span>Total:</span>
+                        <span>£${total.toFixed(2)}</span>
+                    </div>
+                    
+                    <div class="klarna-payment">
+                        <div class="klarna-logo">
+                            <h3>Pay with Klarna</h3>
+                        </div>
+                        <p style="color: #666; margin-bottom: 15px;">Choose your preferred payment method</p>
+                        
+                        <div class="payment-options">
+                            <div class="payment-option active" onclick="selectPayment(this)">
+                                <h4>Pay in 3</h4>
+                                <p>3 interest-free payments of £${(total / 3).toFixed(2)}</p>
+                            </div>
+                            <div class="payment-option" onclick="selectPayment(this)">
+                                <h4>Pay in 30 days</h4>
+                                <p>Try before you buy, pay in 30 days</p>
+                            </div>
+                            <div class="payment-option" onclick="selectPayment(this)">
+                                <h4>Financing</h4>
+                                <p>Flexible monthly payments from £${(total / 12).toFixed(2)}/mo</p>
+                            </div>
+                        </div>
+                        
+                        <button class="checkout-btn" onclick="proceedToCheckout()">Proceed to Checkout</button>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function updateQuantity(index, change) {
+            cart[index].quantity += change;
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+        }
+        
+        function removeItem(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+        }
+        
+        function clearCart() {
+            if (confirm('Are you sure you want to clear your cart?')) {
+                cart = [];
+                localStorage.setItem('cart', JSON.stringify(cart));
+                loadCart();
+            }
+        }
+        
+        function selectPayment(element) {
+            document.querySelectorAll('.payment-option').forEach(opt => {
+                opt.classList.remove('active');
+            });
+            element.classList.add('active');
+        }
+        
+        function proceedToCheckout() {
+            const selectedPayment = document.querySelector('.payment-option.active h4').textContent;
+            alert(`Proceeding to checkout with ${selectedPayment}!\n\nIn a production environment, this would redirect to Klarna's secure payment gateway.`);
+            // In production, integrate with Klarna's API here
+        }
+        
+        // Load cart on page load
+        loadCart();
+    </script>
+</body>
+</html>
